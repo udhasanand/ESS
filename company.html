@@ -1,0 +1,40 @@
+<div class="company_page" ng-controller="CompanyController">
+    <button kendo-button ng-click="addCompany.open(); clearData(); addUpdateButtonVisible=true">Add New Company</button>
+    <div style="margin-top:6px;"  kendo-grid k-data-source="companies"
+        k-sortable="true"
+        k-filterable="false"
+        k-scrollable="true"
+        k-resizable="false"
+        k-selectable="true"
+        k-pageable="{
+            input: true,
+            numeric: true
+        }"
+        k-columns='[
+            { field: "name", title: "Company Name", width: "180px" },
+            { field: "ceo", title: "CEO Name", width: "140px" },
+            { field: "email", title: "Email", width: "200px" },
+            { field: "contactNumber", title: "Contact Number", width: "160px" },
+            { field: "address", title: "Address", width: "140px" },
+            { field: "website", title: "Web Site", width: "140px" },
+            { field: "delete", title:"", width:"100px",template:"<button kendo-button  ng-click=\"deleteCompany(dataItem)\">Delete</button>"},
+            { field: "edit", title:"", width:"100px", template:"<button kendo-button  ng-click=\"editCompany(dataItem); addCompany.open()\">Edit</button>"}
+        ]'
+        >
+    </div>
+    <div kendo-window="addCompany"
+        k-title="'Company'"
+        k-on-open="addCompanyvisible = true"
+        k-on-close="addCompanyvisible = false"
+        k-content='{url:"company-form.html"}'
+        k-visible="false"
+        k-position='{top:150, left:80}'
+        k-width="1300"
+        k-modal="true"
+    >
+    </div>
+    <div>
+        <alert-popup  name="companyAlert" visible="false" message="message" image="icon" >
+        </alert-popup>
+    </div>
+</div>

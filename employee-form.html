@@ -1,0 +1,85 @@
+<form name="Employee" novalidate>
+<div  class="new_employee">
+    <table class="new_employee_table">
+        <tr>
+            <td>
+                <label>Employee Id</label>
+            </td>
+            <td>
+                <input name="emp_id" class="k-textbox" ng-model="employee.id" ng-pattern="/^[0-9]{1,7}$/" ng-change="isEmployeeIdExist()" required/>
+                <span class="error_span">{{customValidate(Employee.emp_id, 'Invalid Id !')}}</span>
+                <span class="error_span" ng-show="employeeExist">Employee Id already exist....</span>
+            </td>
+            <td>
+                <label>Employee Name</label>
+            </td>
+            <td>
+                <input name="emp_name" class="k-textbox"  ng-model="employee.name" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" required />
+                <span class="error_span">{{customValidate(Employee.emp_name, 'Invalid Name !')}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Contact Number</label>
+            </td>
+            <td>
+                <input name="emp_contact_number" class="k-textbox"   ng-model="employee.contactNumber" ng-pattern="/^[0-9]{10}$/" required/>
+                <span class="error_span">{{customValidate(Employee.emp_contact_number, 'Invalid Contact Number !')}}</span>
+            </td>
+            <td>
+                <label>Email</label>
+            </td>
+            <td>
+                <input type="email" name="emp_email" class="k-textbox" required ng-model="employee.email" required/>
+                <span class="error_span">{{customValidate(Employee.emp_email, 'Invalid Email !')}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>SEX</label>
+            </td>
+            <td>
+                <input type="radio" ng-model="employee.gender" name="gender" value="Male" required><label>Male</label>
+                <input type="radio" ng-model="employee.gender" name="gender" value="Female" required><label>Female</label>
+            </td>
+            <td>
+                <label>Company</label>
+            </td>
+            <td>
+                <select kendo-combo-box ng-model="employee.company" k-data-source="companies" k-placeholder="'Select Company'" ng-pattern="/^[a-z]+$/" required></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Designation</label>
+            </td>
+            <td>
+                <input name="emp_designation" class="k-textbox" ng-model="employee.designation" ng-pattern="/^[a-zA-Z]*\s*[a-zA-Z]+$/" required/>
+                <span class="error_span">{{customValidate(Employee.emp_designation, 'Invalid Designation !')}}</span>
+            </td>
+            <td>
+                <label>Date OF Join</label>
+            </td>
+            <td>
+                <input name="emp_date_of_join" kendo-date-picker  ng-model="employee.dateOfJoin" required/>
+                <span  class="error_span">{{customValidate(Employee.emp_date_of_join, 'Invalid Date Format !')}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Address</label>
+            </td>
+            <td>
+                <textarea name="emp_address" class="k-textbox"  ng-model="employee.address" style="width: 280px; height: 90px;resize: none;" ng-pattern="/^[a-zA-Z\s\d\/.,-]+$/" required></textarea>
+                <span class="error_span">{{customValidate(Employee.emp_address, 'Invalid Address !')}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Add"  ng-show="addUpdateButtonVisible" kendo-button  ng-click="addNewEmployee(); Employee.$setPristine();" ng-disabled="Employee.$invalid || employeeExist">
+                <input type="submit" value="Update" ng-show="!addUpdateButtonVisible" kendo-button  ng-click="updateEmployeeRecord(); Employee.$setPristine();" ng-disabled="Employee.$invalid">
+            </td>
+        </tr>
+    </table>
+</div>
+</form>

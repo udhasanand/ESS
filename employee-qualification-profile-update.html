@@ -1,0 +1,36 @@
+<div class="div-body" style="height:40%;">
+    <table class="employee-profile-table">
+        <tr>
+            <td>
+                <label>Languages</label>
+            </td>
+            <td>
+                <select kendo-multi-select  k-data-source="languageOptions" ng-model="employee.language"></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Skill</label>
+            </td>
+            <td>
+                <select kendo-multi-select k-data-source="skillOptions" ng-model="employee.skill"></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Certificates</label>
+            </td>
+            <td>
+                <select kendo-multi-select  k-data-source="certificateOptions" ng-model="employee.certificates"></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Experience</label>
+            </td>
+            <td>
+                <input type="number" class="k-textbox" ng-model="employee.experience">
+            </td>
+        </tr>
+    </table>
+</div>

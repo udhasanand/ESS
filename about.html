@@ -1,0 +1,42 @@
+<form name="Update_Profile" novalidate>
+    <div  id="Update_form">
+        <div style="float:right; margin-right:90px;">
+            <label style="font-size: 18px;">Edit  </label>&nbsp;&nbsp;&nbsp;<input type="checkbox" ng-model="isEditable">
+        </div>
+        <ul style="margin-top:40px;">
+            <li>
+                <img src="./images/User-icon.png" style="width:50px; height:40px;"/>
+                <input type="text"  name="user_name" class="k-textbox" ng-model="userDetails.name"  ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="Name" ng-disabled="!isEditable" required>
+                <span  class="error_span">{{customValidate(Update_Profile.user_name, 'Invalid User Name!')}}</span>
+            </li>
+            <li >
+                <img src="./images/gender.jpg" style="width:50px; height:50px;"/>
+                <input type="radio" name="user_gender" ng-model="userDetails.gender" name="gender" value="Male" ng-disabled="!isEditable" required><label style="color:gray">Male</label>
+                <input type="radio" name="user_gender" ng-model="userDetails.gender" name="gender" value="Female" ng-disabled="!isEditable" required><label style="color:gray">Female</label>
+                <span  class="error_span">{{customValidate(Update_Profile.user_gender, 'Select Gender!')}}</span>
+            </li>
+            <li>
+                <img src="./images/contact_icon.png" style="width:50px; height:50px;"/>
+                <input type="text" name="user_contact_number" ng-model="userDetails.contactNumber" class="k-textbox" ng-pattern="/^[0-9]{10}$/" placeholder="Contact Number" ng-disabled="!isEditable" required>
+                <span  class="error_span">{{customValidate(Update_Profile.user_contact_number, 'Invalid Number !')}}</span>
+            </li>
+            <li>
+                <img src="./images/email.jpg" style="width:50px; height:50px;"/>
+                <input type="email" name="user_email" ng-model="userDetails.email" class="k-textbox can_not_edit" placeholder="Email" readonly>
+            </li>
+            <li>
+                <img src="./images/user_name.png" style="width:50px; height:50px;"/>
+                <input type="text" name="user_username" ng-model="userDetails.userName" class="k-textbox can_not_edit" placeholder="User Name"  readonly>
+            </li>
+            <li>
+                <img src="./images/address.ico" style="width:50px; height:50px;"/>
+                <textarea class="k-textbox" name="user_address" rows="4" cols="15" style="resize:none" ng-model="userDetails.address" ng-pattern="/^[a-zA-Z\s\d\/.,-]+$/" placeholder="Address" ng-disabled="!isEditable" required></textarea>
+                <span  class="error_span">{{customValidate(Update_Profile.user_address, 'Invalid Address !')}}</span>
+            </li>
+            <li style="margin-top:10px;">
+
+                <button kendo-button type="submit" ng-click="updateUserDetails(); isEditable= false; Update_Profile.$setPristine()" ng-show="isEditable" ng-disabled="Update_Profile.$invalid"><i class="icon-large icon-user-add"></i> Update</button>
+            </li>
+        </ul>
+    </div>
+</form>

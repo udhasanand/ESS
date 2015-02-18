@@ -1,0 +1,61 @@
+<form name="Company" novalidate>
+    <div class="new_company">
+        <table class="new_company_table">
+            <tr>
+                <td>
+                    <label>Company Name</label>
+                </td>
+                <td>
+                    <input name="company_name" class="k-textbox" ng-model="company.name" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" ng-change="isCompanyNameExist()" required/>
+                    <span class="error_span">{{customValidate(Company.company_name, 'Invalid Company Name !')}}</span>
+                    <span class="error_span" ng-show="companyExist">Comapny already exist...</span>
+                </td>
+                <td>
+                    <label>CEO Name</label>
+                </td>
+                <td>
+                    <input name="company_ceo" class="k-textbox"  ng-model="company.ceo" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" required/>
+                    <span class="error_span">{{customValidate(Company.company_ceo, 'Invalid Name !')}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Contact Number</label>
+                </td>
+                <td>
+                    <input name="company_contact_number" class="k-textbox"   ng-model="company.contactNumber" ng-pattern="/^[0-9]{10}$/" required/>
+                    <span class="error_span">{{customValidate(Company.company_contact_number, 'Invalid Contact Number !')}}</span>
+                </td>
+                <td>
+                    <label>Email</label>
+                </td>
+                <td>
+                    <input type="email" name="company_email" class="k-textbox"  ng-model="company.email" required/>
+                    <span class="error_span">{{customValidate(Company.company_email, 'Invalid Email !')}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Address</label>
+                </td>
+                <td>
+                    <textarea name="company_address" class="k-textbox"  ng-model="company.address" style="width: 280px; height: 90px;resize: none;" ng-pattern="/^[a-zA-Z\s\d\/.,-]+$/" required></textarea>
+                    <span class="error_span">{{customValidate(Company.company_address, 'Invalid Address !')}}</span>
+                </td>
+                <td>
+                    <label>Website</label>
+                </td>
+                <td>
+                    <input type="url" name="company_website"class="k-textbox"  ng-model="company.website" required/>
+                    <span class="error_span">{{customValidate(Company.company_website, 'Invalid URL !')}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="Add" kendo-button ng-show="addUpdateButtonVisible" ng-click="addNewCompany(); Company.$setPristine();" ng-disabled="Company.$invalid || companyExist">
+                    <input type="submit" value="Update" kendo-button ng-show="!addUpdateButtonVisible"  ng-click="updateCompanyRecord(); Company.$setPristine();" ng-disabled="Company.$invalid">
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

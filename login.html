@@ -1,0 +1,46 @@
+<div class="home_page" >
+    <form name="Login" class="login_page" ng-controller="LoginController">
+        <table class="login_table" >
+            <tr>
+                <td>
+                    <label>User Name</label>
+                </td>
+                <td>
+                    <input class="k-textbox" name="user_name" type="text" ng-model="userName"  ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="User Name" autofocus required>
+                    <span  class="error_span">{{customValidate(Login.user_name, 'Invalid User Name!')}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password</label>
+                </td>
+                <td>
+                    <input class="k-textbox" name="password" type="password" ng-model="password" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="Password" required>
+                    <span  class="error_span">{{customValidate(Login.password, 'Invalid Password !')}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input kendo-button type="submit" value="login" ng-click="userLogin(); Login.$setPristine();" ng-disabled="Login.$invalid">
+                </td>
+                <td>
+                    <a style="cursor:pointer" ng-click="openRegisterWindow()"><span class="error_span"> Register Here..</span></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="error_span">{{loginError}}</span>
+                </td>
+            </tr>
+        </table>
+        <div id="register_window" kendo-window="register_window"
+            k-title="'Register'"
+            k-visible="false"
+            k-content='{url:"register-form.html"}'
+            k-width="500"
+            k-height="460"
+            k-modal="true"
+        >
+        </div>
+    </form>
+</div>

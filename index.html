@@ -1,0 +1,81 @@
+<html ng-app="ESS">
+    <head>
+        <title>Employee Self Service</title>
+        <link rel="shortcut icon" href="./images/esslogo.ico" type="image/x-icon" />
+
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/stylesheet.css">
+        <link rel="stylesheet" href="./css/kendo.common.min.css">
+        <!-- <link rel="stylesheet" href="./css/kendo.default.min.css"> -->
+        <link rel="stylesheet" href="//cdn.kendostatic.com/2014.1.416/styles/kendo.silver.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.icon-large.css">
+    </head>
+    <body ng-controller="UserController">
+        <div class="navbar navbar-inverse" role="navigation">
+            <img src="http://www.actglobal.com/images/ouremployees-icon.png" onclick="window.location='index.html'" style="width:62; height:54; display:inline-block; cursor:pointer">
+            <a class="navbar-brand" href="index.html"  style="display:inline-block">Employee Self Service</a>
+            <div ng-show="user.name" style="display:inline-block;float:right; margin-left: 50px;">
+                <label  class="welcome_user" style="margin-right: 120px; color:white;">Welcome {{user.name}}  </label>
+                <button kendo-button ng-click="logout()" style="position: absolute; margin-left: 130px">Logout</button>
+            </div>
+        </div>
+        <div class="menu" >
+            <ul style="list-style-type:none;" >
+                <li><a class="menu-item" ng-click="userAccess('employee')" style="cursor:pointer">Employee</a></li>
+                <li ng-show="user.name"><a class="menu-item" ng-click="userAccess('employeeProfile')"  style="cursor:pointer;">Employee Profile</a></li>
+                <li><a class="menu-item" ng-click="userAccess('company')"  style="cursor:pointer">Company</a></li>
+                <li ng-show="user.name"><a class="menu-item" ng-click="userAccess('companyChart')"  style="cursor:pointer;">Company Chart</a></li>
+                <li ng-show="user.name"><a class="menu-item" ng-click="userAccess('about');setAboutData();"  style="cursor:pointer">User Profile</as></li>
+                <li ng-show="user.name"><a class="menu-item" ng-click="userAccess('changePassword')"  style="cursor:pointer;">Change Password</a></li>
+            </ul>
+        </div>
+        <div>
+            <alert-popup  name="alert" visible="false" message="message" image="icon" >
+            </alert-popup>
+        </div>
+        <div ui-view class="display_panel" >
+        </div>
+        <div id="footer">
+            Copyright &copy; ObjectFrontier.com
+        </div>
+
+        <!-- library -->
+
+        <script src="./scripts/library/jquery.min.js"></script>
+        <script src="./scripts/library/angular.min.js"></script>
+        <script src="./scripts/library/angular-local-storage.js"></script>
+        <script src="./scripts/library/angular-ui-router.js"></script>
+        <script src="./scripts/library/kendo.all.js"></script>
+        <script src="./scripts/library/angular-input-match.min.js"></script>
+
+        <!-- Config js -->
+
+        <script src="./scripts/app.js"></script>
+        <script src="./scripts/app-config.js"></script>
+
+        <!-- services -->
+
+        <script src="./scripts/service/validator-service.js"></script>
+        <script src="./scripts/service/user-authentication-service.js"></script>
+        <script src="./scripts/service/company-service.js"></script>
+        <script src="./scripts/service/employee-service.js"></script>
+        <script src="./scripts/service/employee-profile-service.js"></script>
+        <script src="./scripts/service/registration-service.js"></script>
+
+        <!-- controller -->
+
+        <script src="./scripts/controller/login-controller.js"></script>
+        <script src="./scripts/controller/user-controller.js"></script>
+        <script src="./scripts/controller/registration-controller.js"></script>
+        <script src="./scripts/controller/employee-controller.js"></script>
+        <script src="./scripts/controller/employee-profile-controller.js"></script>
+        <script src="./scripts/controller/company-controller.js"></script>
+        <script src="./scripts/controller/company-chart-controller.js"></script>
+
+        <!-- Directives -->
+
+        <script src="./scripts/directive/alert-popup-directive.js"></script>
+        <script src="./scripts/directive/confirm-popup-directive.js"></script>
+        <script src="./scripts/animation.js"></script>
+    </body>
+</html>

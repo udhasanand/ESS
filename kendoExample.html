@@ -1,0 +1,65 @@
+<html ng-app="myapp">
+    <head>
+
+
+    <base href="http://kendo-labs.github.io/angular-kendo/#/AutoComplete">
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <meta charset="utf-8">
+    <title>kendow Examples</title>
+    <link rel="stylesheet" href="//cdn.kendostatic.com/2014.1.416/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="//cdn.kendostatic.com/2014.1.416/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="//cdn.kendostatic.com/2014.1.416/styles/kendo.silver.min.css">
+
+
+
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
+    <script src="./angular-kendo.js"></script>
+    <script>
+
+    </script>
+    </head>
+    <body>
+        <div ng-controller="MyController">
+            <input kendo-auto-complete ng-model="name" /><br>
+            <label>{{name}}</label></br>
+            <button kendo-button ng-click="test()">Button</button>
+            <select kendo-combo-box ng-model="comboData">
+                <option  value="">Select a color</option>
+                <option ng-repeat="color in colors">{{color}}</option>
+            </select>
+            <button ng-click="test()">sdfskf</button>
+            <select kendo-drop-down-list ng-model="abc" ng-options="color1.name as color1.value for color1 in col">
+                <option value="">Select</option>
+            </select>
+
+            {{abc}}
+             <button class="k-button" ng-click="win2.open()">Open Lorem Ipsum</button>
+
+            <div kendo-window="win2" k-title="'AJAX kjgjhghjgcontent'"
+                k-width="800" k-height="400" k-visible="false"
+                k-content="{ url: '.company.html' }"
+                k-on-open="win2visible = true" k-on-close="win2visible = false"></div>
+
+        </div>
+        <script>
+        var app =  angular.module("myapp", [ "kendo.directives" ]);
+
+        app.controller("MyController", function ($scope) {
+
+            $scope.name = '';
+            $scope.colors = ["red", "blue", "green", "yellow"];
+            $scope.col = [{name:'red', value:'red'},{name:'blue', value:'blue'},{name:'green', value:'green'}];
+            $scope.test = function () {
+                alert($scope.comboData);
+                $scope.abc = $scope.name;
+                $scope.comboData = $scope.name;
+                alert($scope.abc);
+            };
+
+        });
+        </script>
+    </body>
+</html>

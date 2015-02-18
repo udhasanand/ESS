@@ -1,0 +1,46 @@
+
+<div class="employee_page" ng-controller="EmployeeController">
+    <input type="button" value="Add New Employee" kendo-button ng-click="addEmployee.open(); addUpdateButtonVisible=true">
+    <input  type="text" class="k-textbox" ng-model="searchName" ng-change="search(searchName)" style="margin-right:;" placeholder="Search Name or Id">
+    <img src="./images/search.jpg" style="width:40px;height:40px;">
+    <div style="margin-top:6px;" kendo-grid k-data-source="employees"
+        k-sortable="true"
+        k-filterable="false"
+        k-scrollable="true"
+        k-resizable ="false"
+        k-selectable ="true"
+        k-pageable="{
+            input: true,
+            numeric: true
+        }"
+        k-columns='[
+            { field: "id", title: "Employee Id", width: "100px" },
+            { field: "name", title: "Employee Name", width: "180px" },
+            { field: "contactNumber", title: "Contact Number", width: "140px" },
+            { field: "email", title: "Email", width: "200px" },
+            { field: "gender",   title: "Gender", width: "100px" },
+            { field: "company", title: "Company", width: "160px" },
+            { field: "dateOfJoin", title: "Date Of Join", width: "150px" },
+            { field: "designation",   title: "Designation", width: "160px" },
+            { field: "address", title: "Address", width: "140px" },
+            { field: "delete", title:"", width:"100px",template:"<button kendo-button  ng-click=\"deleteEmployee(dataItem)\">Delete</button>"},
+            { field: "edit", title:"", width:"100px", template:"<button kendo-button   ng-click=\"editEmployee(dataItem);addEmployee.open()\">Edit</button>"}
+        ]'
+    >
+    </div>
+    <div kendo-window="addEmployee"
+        k-title="'Employee'"
+        k-on-open="addEmployeevisible = true"
+        k-on-close="addEmployeevisible = false"
+        k-content='{url:"employee-form.html"}'
+        k-visible="false"
+        k-position='{top:150, left:80}'
+        k-width="1300"
+        k-modal="true"
+    >
+    </div>
+    <div>
+        <alert-popup  name="employeeAlert" visible="false" message="message" image="icon" >
+        </alert-popup>
+    </div>
+</div>

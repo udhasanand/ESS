@@ -1,0 +1,20 @@
+<div class="div-body" style="height:40%;">
+    <table class="employee-profile-table">
+        <tr>
+            <td><label>Languages :</label></td>
+            <td ng-repeat="language in updatedEmployee.languages"><label>{{language + ","}}</label></td>
+        </tr>
+        <tr>
+            <td><label>Skills :</label></td>
+            <td ng-repeat="skill in updatedEmployee.skills"><label>{{skill + ","}}</label></td>
+        </tr>
+        <tr>
+            <td><label>Certificates :</label></td>
+            <td ng-repeat="certificate in updatedEmployee.certificates"><label>{{certificate + ","}}</label></td>
+        </tr>
+        <tr>
+            <td><label>Experience :</label></td>
+            <td ><label>{{updatedEmployee.experience}}</label></td>
+        </tr>
+    </table>
+</div>

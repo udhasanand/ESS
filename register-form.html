@@ -1,0 +1,51 @@
+<form name="Register" ng-controller="RegisterController" novalidate>
+    <div style="list-style-type:none">
+        <ul>
+            <li>
+                <img src="./images/User-icon.png" style="width:50px; height:40px;"/>
+                <input type="text" name="user_name" class="k-textbox" ng-model="newUser.name"  ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="Name" required>
+                <span  class="error_span">{{customValidate(Register.user_name, 'Invalid User Name!')}}</span>
+            </li>
+            <li>
+                <img src="./images/gender.jpg" style="width:50px; height:50px;"/>
+                <input type="radio" name="user_gender" ng-model="newUser.gender" name="gender" value="Male" required><label style="color:gray">Male</label>
+                <input type="radio" name="user_gender" ng-model="newUser.gender" name="gender" value="Female" required><label style="color:gray">Female</label>
+                <span  class="error_span">{{customValidate(Register.user_gender, 'Select Gender!')}}</span>
+            </li>
+            <li>
+                <img src="./images/contact_icon.png" style="width:50px; height:50px;"/>
+                <input type="text" name="user_contact_number" ng-model="newUser.contactNumber" class="k-textbox" ng-pattern="/^[0-9]{10}$/" placeholder="Contact Number" required>
+                <span  class="error_span">{{customValidate(Register.user_contact_number, 'Invalid Number !')}}</span>
+            </li>
+            <li>
+                <img src="./images/email.jpg" style="width:50px; height:50px;"/>
+                <input type="email" name="user_email" ng-model="newUser.email" ng-change="isEmailExist()" class="k-textbox" placeholder="Email" required>
+                <span  class="error_span">{{customValidate(Register.user_email, 'Invalid Email !')}}</span>
+                <span  class="error_span" ng-show="userEmailExist">email already exist.....</span>
+            </li>
+            <li>
+                <img src="./images/user_name.png" style="width:50px; height:50px;"/>
+                <input type="text" name="user_username" ng-model="newUser.userName" ng-change="isUserNameExist()" class="k-textbox" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="User Name" required>
+                <span  class="error_span">{{customValidate(Register.user_username, 'Invalid User Name !')}}</span>
+                <span  class="error_span" ng-show="userNameExist">user name already exist.....</span>
+            </li>
+            <li>
+                <img src="./images/password.jpg" style="width:50px; height:50px;"/>
+                <input type="password" name="user_password" ng-model="newUser.password" class="k-textbox" ng-pattern="/^[a-z||A-Z][a-zA-Z.'\s]+$/" placeholder="Password" required>
+                <span  class="error_span">{{customValidate(Register.user_password, 'Invalid Password !')}}</span>
+            </li>
+            <li>
+                <img src="./images/address.ico" style="width:50px; height:50px;"/>
+                <textarea class="k-textbox" name="user_address" rows="4" cols="15" style="resize:none" ng-model="newUser.address" ng-pattern="/^[a-zA-Z\s\d\/.,-]+$/" placeholder="Address" required></textarea>
+                <span  class="error_span">{{customValidate(Register.user_address, 'Invalid Address !')}}</span>
+            </li>
+            <li style="margin-top:10px;">
+                <button kendo-button type="submit" ng-click="register(); Register.$setPristine()" ng-disabled="Register.$invalid || userEmailExist || userNameExist"><i class="icon-large icon-user-add"></i> submit</button>
+            </li>
+        </ul>
+    </div>
+    </div>
+        <alert-popup title="'Registration'" name="alert" visible="false" message="alertMessage" image="image" >
+        </alert-popup>
+    </div>
+</form>

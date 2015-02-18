@@ -1,0 +1,5 @@
+{
+    "skill": ["PHP", ".NET", "XML", "HTML", "JAVA","JAVA SCRIPT"],
+    "certificates": ["CCNA", "MTA", "Oracle DBA", "Oracle Developer","MCTS"],
+    "language": ["English", "French", "German"]
+}

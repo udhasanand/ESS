@@ -1,0 +1,200 @@
+.menu {
+    width: 13%;
+    height: 87.6%;
+    display: inline-block;
+    float: left;
+    margin-top: -10px;
+    box-shadow: 10px 1px 5px #888888;
+}
+
+.navbar {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.display_panel {
+    width: 86%;
+    height: 87.6%;
+    float: right;
+    margin-top: -10px;
+}
+
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+    height: 4%;
+}
+
+.home_page {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../images/home.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.employee_page {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.new_employee_table {
+    width: 80%;
+}
+
+.new_employee_table td {
+    padding: 8px;
+}
+
+.new_employee {
+    background-color: #83D6F2;
+    margin-top: 5px;
+}
+
+.company_page {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.new_company_table {
+    width: 80%;
+}
+
+.new_company_table td {
+    padding: 10px;
+}
+
+.new_company {
+    background-color: #83D6F2;
+    margin-top: 10px;
+}
+
+label {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #4D4D4D;
+    font-style: normal;
+    text-transform: none;
+}
+
+.error_span {
+    position: absolute;
+    color: red;
+}
+
+.welcome_user {
+    float:right;
+    margin-right: 10px;
+}
+
+.login_page {
+    margin-left: 200px;;
+    width: 400px;
+    height: 200px;
+    margin-top: 260px;
+    border: 1px solid pink;
+    border-radius: 5px;
+    background-color: #E6E6E6;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.login_table {
+    margin-top: 10px;
+}
+
+.login_table td {
+    padding: 10px;
+}
+
+.menu-item {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+form .ng-invalid.ng-dirty {
+    border-color: red;
+}
+
+#Update_form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+    width: 32%;
+    height: 70%;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.can_not_edit {
+    cursor: not-allowed;
+}
+
+.change_password {
+    width:35%;
+    height:40%;
+    background-color:black;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 200px;
+    border: 1px solid pink;
+    background-color: #E6E6E6;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.change_password_table {
+    margin-top: 10px;
+}
+
+.change_password_table td {
+    padding: 10px;
+}
+
+.div-header {
+    width: 60%;
+    height:40px;
+    margin-left: 244px;
+    background-color: #C1C1C1;
+    border: 1px solid pink;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.div-edit-button {
+    float: right;
+}
+
+.div-body {
+    width: 60%;
+    height:inherit;
+    margin-left: 244px;
+    background-color: #f1f1f1;
+    overflow: scroll;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.employee-profile-table {
+    margin-left: 100px;
+    border-collapse:separate;
+    border-spacing:5px;
+}
+
+.file_upload_button {
+    margin-top: 140px;
+    float:right;
+    margin-right: 35px;
+
+}
+
+.k-grid th.k-header, .k-grid-header {
+  background: #CEECF5;
+}

@@ -1,0 +1,21 @@
+<form ng-controller="EmployeeProfileController">
+    <div class="div-header">
+        <label>Basic Details</label>
+    </div>
+    <div ng-include="'employee-basic-profile.html'">
+    </div>
+    <div class="div-header">
+        <label>Qualification & Experience Details</label>
+        <button kendo-button class="div-edit-button"  ng-click="editEmployeeProfile()">{{editButtonText}}</button>
+    </div>
+    <div ng-include="employeeQualificationProfileUrl">
+    </div>
+    <div>
+        <confirm-popup title="'Update Alert'" name="confirmAlert" visible="false" message="message" ok-fn="saveEmployeeProfile()" cancel-fn="undoEmployeeProfileUdtation()">
+        </alert-popup>
+    </div>
+    <div>
+        <alert-popup title="'Updated'" name="updateAlert" visible="false" message="'Employee profile updated successfully.. '" image="'success.png'" >
+        </alert-popup>
+    </div>
+</form>
